@@ -13,6 +13,7 @@ class CallingAPI extends StatefulWidget {
 class _CallingAPIState extends State<CallingAPI> {
   final url = 'https://jsonplaceholder.typicode.com/photos';
   var data;
+
   @override
   void initState() {
     super.initState();
@@ -28,7 +29,6 @@ class _CallingAPIState extends State<CallingAPI> {
     data = jsonDecode(res.body);
     setState(() {});
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +36,10 @@ class _CallingAPIState extends State<CallingAPI> {
       body: ListView.builder(
           itemCount: data.length,
           itemBuilder: (BuildContext context, index) {
-            return Card(
-              child: ListTile(
-                title: Text(data[index]['title']),
-                // leading: Image.network(data[index]['url']),
+            return ListTile(
+              title: Text(data[index]['title']),
+              trailing: Image.network(
+                data[index]['url'],
               ),
             );
           }),
