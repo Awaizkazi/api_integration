@@ -33,16 +33,19 @@ class _CallingAPIState extends State<CallingAPI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-          itemCount: data.length,
-          itemBuilder: (BuildContext context, index) {
-            return ListTile(
-              title: Text(data[index]['title']),
-              trailing: Image.network(
-                data[index]['url'],
-              ),
-            );
-          }),
+      body: Card(
+        child: ListView.builder(
+            itemCount: data.length,
+            itemBuilder: (BuildContext context, index) {
+              return ListTile(
+                title: Text(data[index]['title']),
+                trailing: Image.network(
+                  data[index]['url'],
+                ),
+                // leading: Text(data[index]['thumbnailUrl']),
+              );
+            }),
+      ),
     );
   }
 }

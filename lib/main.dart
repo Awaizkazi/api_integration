@@ -3,6 +3,8 @@ import 'package:api_integration/tiles.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'index.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CallingAPI(),
+      home: IndexPage(),
     );
   }
 }
