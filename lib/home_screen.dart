@@ -38,20 +38,51 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          FutureBuilder(
-              future: getPostApi(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return Text('Loading Data');
-                } else {
-                  return ListView.builder(
-                      itemBuilder: (BuildContext context, index) {
-                    return Card();
-                  });
-                }
-              }),
+          Expanded(
+            child: FutureBuilder(
+                future: getPostApi(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return Text('Loading Data');
+                  } else {
+                    return ListView.builder(
+                        itemCount: postList.length,
+                        itemBuilder: (BuildContext context, index) {
+                          return Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Title\n' +
+                                        postList[index].title.toString(),
+                                  ),
+                                  Text(
+                                    'Id\n' + postList[index].id.toString(),
+                                  ),
+                                  Text(
+                                    'UserId\n' +
+                                        postList[index].userId.toString(),
+                                  ),
+                                  Text(
+                                    'Description\n' +
+                                        postList[index].body.toString(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        });
+                  }
+                }),
+          ),
         ],
       ),
     );
   }
 }
+
+// 18 : 00 se video dekna hai
+// https://www.youtube.com/watch?v=81kEKRHMp3s&list=PLFyjjoCMAPtzgITDreXNNkSWLKbd1wf51&index=7
