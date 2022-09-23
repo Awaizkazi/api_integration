@@ -43,34 +43,87 @@ class _HomeScreenState extends State<HomeScreen> {
                 future: getPostApi(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
-                    return Text('Loading Data');
+                    return Center(child: CircularProgressIndicator());
                   } else {
                     return ListView.builder(
                         itemCount: postList.length,
                         itemBuilder: (BuildContext context, index) {
                           return Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Title\n' +
-                                        postList[index].title.toString(),
-                                  ),
-                                  Text(
-                                    'Id\n' + postList[index].id.toString(),
-                                  ),
-                                  Text(
-                                    'UserId\n' +
-                                        postList[index].userId.toString(),
-                                  ),
-                                  Text(
-                                    'Description\n' +
-                                        postList[index].body.toString(),
-                                  ),
-                                ],
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [Colors.blue, Colors.pink],
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Text(
+                                                'Title :',
+                                                style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.amber,
+                                                ),
+                                              ),
+                                              Text(
+                                                postList[index]
+                                                    .title
+                                                    .toString(),
+                                                textAlign: TextAlign.center,
+                                                maxLines: 1,
+                                              ),
+                                            ],
+                                          ),
+                                          Text(
+                                            'Id',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.purple,
+                                            ),
+                                          ),
+                                          Text(
+                                            postList[index].id.toString(),
+                                          ),
+                                          Text(
+                                            'UserId\n' +
+                                                postList[index]
+                                                    .userId
+                                                    .toString(),
+                                          ),
+                                          Text(
+                                            'Description',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.purple,
+                                            ),
+                                          ),
+                                          Text(
+                                            'Description\n' +
+                                                postList[index].body.toString(),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           );

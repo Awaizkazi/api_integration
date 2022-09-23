@@ -4,6 +4,7 @@ import 'package:api_integration/tiles.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'example_two.dart';
 import 'home_screen.dart';
 import 'index.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: primary,
       ),
-      home: HomeScreen(),
+      home: ExampleTwo(),
     );
   }
 }
