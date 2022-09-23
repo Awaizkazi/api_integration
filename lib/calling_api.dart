@@ -1,4 +1,4 @@
-// Fetching Image and title From API 
+// Fetching Image and title From API
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -40,9 +40,7 @@ class _CallingAPIState extends State<CallingAPI> {
             itemBuilder: (BuildContext context, index) {
               return ListTile(
                 title: Text(data[index]['title']),
-                leading: Image.network(
-                  data[index]['url'],
-                ),
+                // leading: Image.network(data[index]['url']),
               );
             }),
       ),
