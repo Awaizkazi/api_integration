@@ -38,12 +38,16 @@ class _QuestionOneState extends State<QuestionOne> {
                 onPressed: () {
                   setState(() {
                     int mul = int.parse(num1controller.text) * 3;
+                    // int mul2 = int.parse(num2controller.text) * 4;
+                    // int mul2 = int.parse(num1controller.text) * 4;
                     result = mul.toString();
+                    // result = mul2.toString();
                   });
                 },
                 child: Text('*3'),
               ),
-              Text('Result : $result'),
+              Text('Result  : $result'),
+              // Text('Result * 4: $res'),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
@@ -60,14 +64,17 @@ class _QuestionOneState extends State<QuestionOne> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    int mul = int.parse(num1controller.text) * 4;
                     // int mul = int.parse(num1controller.text) * 3;
-                    res = mul.toString();
+                    int mul2 = int.parse(num1controller.text) * 4;
+                    // int mul2 = int.parse(num1controller.text) * 4;
+                    result = mul2.toString();
+                    // res = mul.toString();
                   });
                 },
                 child: Text('*4'),
               ),
-              Text('Result : $res'),
+              Text('Result : $result'),
+              // Text('Result * 4 : $res'),
             ],
           ),
         ),
