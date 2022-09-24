@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'example_two.dart';
 import 'home_screen.dart';
 import 'index.dart';
+import 'question_1.dart';
 import 'upOnly_api.dart';
 
 void main() {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: primary,
       ),
-      home: UpOnlyApi(),
+      home: QuestionOne(),
     );
   }
 }
