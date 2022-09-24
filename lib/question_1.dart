@@ -8,10 +8,10 @@ class QuestionOne extends StatefulWidget {
 }
 
 class _QuestionOneState extends State<QuestionOne> {
-  TextEditingController num1controller = new TextEditingController();
-  TextEditingController num2controller = new TextEditingController();
-  String result = '0';
-  String res = '0';
+  TextEditingController num1controller = TextEditingController();
+  TextEditingController num2controller = TextEditingController();
+  String result = '';
+  String res = '';
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class _QuestionOneState extends State<QuestionOne> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: TextFormField(
                   decoration: InputDecoration(
                     hintText: 'Enter a Number',
@@ -38,7 +38,6 @@ class _QuestionOneState extends State<QuestionOne> {
                 onPressed: () {
                   setState(() {
                     int mul = int.parse(num1controller.text) * 3;
-
                     result = mul.toString();
                   });
                 },
@@ -55,13 +54,14 @@ class _QuestionOneState extends State<QuestionOne> {
                     ),
                   ),
                   keyboardType: TextInputType.number,
-                  controller: num2controller,
+                  controller: num1controller,
                 ),
               ),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    int mul = int.parse(num2controller.text) * 4;
+                    int mul = int.parse(num1controller.text) * 4;
+                    // int mul = int.parse(num1controller.text) * 3;
                     res = mul.toString();
                   });
                 },
